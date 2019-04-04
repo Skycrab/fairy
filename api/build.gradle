@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+}
+
+group 'com.fairy.api'
+version '1.0-SNAPSHOT'
+
+def env = project.hasProperty("prod") ? "prod" : "dev"
+
+if (env == "prod") {
+    apply from: 'gradle/profile_prod.gradle'
+} else {
+    apply from: 'gradle/profile_dev.gradle'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/resources/config", "src/main/resources/$env"]
+        }
+    }
+}
+
+dependencies {
+    compile "com.zaxxer:HikariCP:2.7.9"
+    compile "org.springframework.boot:spring-boot-starter-security"
+    compile "org.springframework.boot:spring-boot-loader-tools"
+    compile "org.springframework.boot:spring-boot-starter-aop"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+    compile "org.springframework.security:spring-security-config"
+    compile "org.springframework.security:spring-security-data"
+    compile "org.springframework.security:spring-security-web"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "mysql:mysql-connector-java:5.1.47"
+    compile "com.alibaba:transmittable-thread-local:2.10.2"
+    compile "com.ofpay:logback-mdc-ttl:1.0.2"
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    compile group: 'org.zalando', name: 'problem-spring-web', version: '0.24.0-RC.0'
+    compile group: 'com.github.wenhao', name: 'jpa-spec', version: '3.2.4'
+    compile group: 'de.codecentric', name: 'spring-boot-admin-starter-server', version: '2.1.2'
+    compile group: 'de.codecentric', name: 'spring-boot-admin-server-ui', version: '2.1.2'
+    compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.1.2'
+
+    testCompile "com.h2database:h2:1.4.197"
+
+
+}
+
