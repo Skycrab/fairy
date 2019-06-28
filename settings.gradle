@@ -1,3 +1,4 @@
 rootProject.name = 'fairy'
 include 'api'
-
+include 'hadoop-client'
+include 'dummy-hadoop-client'
