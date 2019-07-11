@@ -37,6 +37,7 @@ dependencies {
     compile "com.ofpay:logback-mdc-ttl:1.0.2"
     compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-bean-validators', version: '2.9.2'
     compile group: 'org.zalando', name: 'problem-spring-web', version: '0.24.0-RC.0'
     compile group: 'com.github.wenhao', name: 'jpa-spec', version: '3.2.4'
     compile group: 'de.codecentric', name: 'spring-boot-admin-starter-server', version: '2.1.2'
